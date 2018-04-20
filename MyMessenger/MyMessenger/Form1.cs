@@ -22,5 +22,11 @@ namespace MyMessenger
             var dal = new DAL.DataAccesLayer();
             label1.Text = dal.AddUser("admin10", "admin", "admin").ToString();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var dal = new DAL.DataAccesLayer();
+            label1.Text = dal.AddMessage(1,2,"tema","text", DateTime.Now).ToString();
+        }
     }
 }

@@ -30,5 +30,23 @@ namespace DAL
                 return Convert.ToInt32(command.ExecuteScalar());
             }
         }
+
+        public int AddMessage(int MsgFrom, int MsgTo, string Sub, string Body, DateTime Date)
+        {
+            DataSet ds = new DataSet();
+            using (connection)
+            using (var command = new SqlCommand("Add_Message", connection) { CommandType = CommandType.StoredProcedure })
+            {
+                connection.Open();
+                SqlDataAdapter a = new SqlDataAdapter(command);
+                command.Parameters.Add(new SqlParameter("@MsgFrom", MsgFrom));
+                command.Parameters.Add(new SqlParameter("@MsgTo", MsgTo));
+                command.Parameters.Add(new SqlParameter("@Sub", Sub));
+                command.Parameters.Add(new SqlParameter("@Body", Body));
+                command.Parameters.Add(new SqlParameter("@Date", Date));
+
+                return Convert.ToInt32(command.ExecuteScalar());
+            }
+        }
     }
 }
