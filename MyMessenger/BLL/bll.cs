@@ -8,6 +8,6 @@ namespace BLL
 {
     public class bll
     {
-        
+        //public bool AddUser(string UserName)
     }
 }

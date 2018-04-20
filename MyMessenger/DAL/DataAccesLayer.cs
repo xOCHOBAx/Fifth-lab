@@ -12,8 +12,14 @@ namespace DAL
 {
     public class DataAccesLayer
     {
-        static string connectionString = ConfigurationManager.ConnectionStrings["Default"].ConnectionString;
-        SqlConnection connection = new SqlConnection(connectionString);
+        static string connectionString;
+        SqlConnection connection;
+
+        public DataAccesLayer()
+        {
+            connectionString = ConfigurationManager.ConnectionStrings["Default"].ConnectionString;
+            connection = new SqlConnection(connectionString);
+        }
 
         public int AddUser(string UserName, string Password, string FullName)
         {
@@ -44,7 +50,7 @@ namespace DAL
                 command.Parameters.Add(new SqlParameter("@Sub", Sub));
                 command.Parameters.Add(new SqlParameter("@Body", Body));
                 command.Parameters.Add(new SqlParameter("@Date", Date));
-
+                a.Fill(ds);
                 return Convert.ToInt32(command.ExecuteScalar());
             }
         }

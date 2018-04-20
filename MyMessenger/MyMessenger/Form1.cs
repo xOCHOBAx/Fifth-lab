@@ -20,7 +20,7 @@ namespace MyMessenger
         private void button1_Click(object sender, EventArgs e)
         {
             var dal = new DAL.DataAccesLayer();
-            label1.Text = dal.AddUser("admin10", "admin", "admin").ToString();
+            label1.Text = dal.AddUser("admin1488", "admin", "admin").ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)
