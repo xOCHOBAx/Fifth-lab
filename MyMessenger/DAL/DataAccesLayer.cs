@@ -11,7 +11,15 @@ namespace DAL
 {
     public class DataAccesLayer
     {
-        string str = System.Configuration.ConfigurationManager.ConnectionStrings["MyMessengerDB"].ConnectionString;
+        static string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MyMessengerDB"].ConnectionString;
+        SqlConnection connection = new SqlConnection(connectionString);
+
+        public void kek() {
+            using (connection)
+            {
+                connection.Open();
+            }
+        }
         
     }
 }
