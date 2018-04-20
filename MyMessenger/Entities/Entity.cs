@@ -6,9 +6,6 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class Class1
-    {
-    }
 
     public class User
     {
