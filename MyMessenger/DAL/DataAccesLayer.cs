@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 using Entities;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace DAL
 {
     public class DataAccesLayer
     {
-        //static string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MyMessengerDB"].ConnectionString;
-        static SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\repos\Fifth-lab\MyMessenger\DAL\MyMessengerDB.mdf;Integrated Security=True;Connect Timeout=30");
+        static string connectionString = ConfigurationManager.ConnectionStrings["Default"].ConnectionString;
+        SqlConnection connection = new SqlConnection(connectionString);
 
         public int AddUser(string UserName, string Password, string FullName)
         {
