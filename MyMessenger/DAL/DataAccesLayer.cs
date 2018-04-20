@@ -24,13 +24,9 @@ namespace DAL
                 SqlDataAdapter a = new SqlDataAdapter(command);
                 command.Parameters.Add(new SqlParameter("@UserName",UserName));
                 command.Parameters.Add(new SqlParameter("@Password", Password));
-                command.Parameters.Add(new SqlParameter("@FullName",FullName));
-
-                
+                command.Parameters.Add(new SqlParameter("@FullName", FullName));
 
                 return Convert.ToInt32(command.ExecuteScalar());
-                
-                //return ds.Tables[0].Rows[0].Field<bool>("");
             }
         }
     }
