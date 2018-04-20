@@ -8,6 +8,10 @@ namespace BLL
 {
     public class bll
     {
-        //public bool AddUser(string UserName)
+        static DAL.DataAccesLayer dal = new DAL.DataAccesLayer();
+        public bool AddUser(string UserName,string Password,string FullName)
+        {
+            return true
+        }
     }
 }
