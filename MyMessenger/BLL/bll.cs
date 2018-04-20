@@ -14,5 +14,7 @@ namespace BLL
         {
             return dal.AddUser(UserName,Password,FullName);
         }
+
+        public bool AddMessage(int MsgFrom,int MsgTo,string Sub,string Body) { return false; }
     }
 }
