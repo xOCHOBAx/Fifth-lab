@@ -9,9 +9,10 @@ namespace BLL
     public class bll
     {
         static DAL.DataAccesLayer dal = new DAL.DataAccesLayer();
+
         public bool AddUser(string UserName,string Password,string FullName)
         {
-            return true
+            return dal.AddUser(UserName,Password,FullName);
         }
     }
 }

@@ -21,7 +21,7 @@ namespace DAL
             connection = new SqlConnection(connectionString);
         }
 
-        public int AddUser(string UserName, string Password, string FullName)
+        public bool AddUser(string UserName, string Password, string FullName)
         {
             DataSet ds = new DataSet();
             using (connection)
@@ -33,11 +33,11 @@ namespace DAL
                 command.Parameters.Add(new SqlParameter("@Password", Password));
                 command.Parameters.Add(new SqlParameter("@FullName", FullName));
 
-                return Convert.ToInt32(command.ExecuteScalar());
+                return Convert.ToInt32(command.ExecuteScalar())==1;
             }
         }
 
-        public int AddMessage(int MsgFrom, int MsgTo, string Sub, string Body, DateTime Date)
+        public bool AddMessage(int MsgFrom, int MsgTo, string Sub, string Body, DateTime Date)
         {
             DataSet ds = new DataSet();
             using (connection)
@@ -51,7 +51,8 @@ namespace DAL
                 command.Parameters.Add(new SqlParameter("@Body", Body));
                 command.Parameters.Add(new SqlParameter("@Date", Date));
                 a.Fill(ds);
-                return Convert.ToInt32(command.ExecuteScalar());
+
+                return true;
             }
         }
     }
