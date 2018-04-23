@@ -35,6 +35,42 @@ namespace DAL
             }
         }
 
+        public bool Authorize(string UserName,string Password)
+        {
+            using (connection)
+            using (var command = new SqlCommand("Authorize", connection) { CommandType = CommandType.StoredProcedure })
+            {
+                connection.Open();
+                command.Parameters.Add(new SqlParameter("@UserName", UserName));
+                command.Parameters.Add(new SqlParameter("@Password", Password));
+                SqlDataAdapter a = new SqlDataAdapter(command);
+                DataSet ds = new DataSet();
+                a.Fill(ds);
+                return ds.Tables.Count == 1;
+            }
+        }
+
+        public User GetUserByName(string UserName)
+        {
+            using (connection)
+            using (var command = new SqlCommand("Get_User_By_Name", connection) { CommandType = CommandType.StoredProcedure })
+            {
+                connection.Open();
+                command.Parameters.Add(new SqlParameter("@UserName", UserName));
+                SqlDataAdapter a = new SqlDataAdapter(command);
+                DataSet ds = new DataSet();
+                a.Fill(ds);
+
+
+                if (ds.Tables.Count != 0)
+                {
+                    DataRow row = ds.Tables[0].Rows[0];
+                    return FormUserFromRow(row);
+                }
+                return null;
+            }
+        }
+
         public User GetUser(int Id)
         {
             using (connection)

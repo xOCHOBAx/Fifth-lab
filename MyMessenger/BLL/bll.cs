@@ -10,11 +10,30 @@ namespace BLL
     {
         static DAL.DataAccesLayer dal = new DAL.DataAccesLayer();
 
-        public bool AddUser(string UserName,string Password,string FullName)
+        public bool AddUser(string UserName, string Password, string FullName)
         {
-            return dal.AddUser(UserName,Password,FullName);
+            dal = new DAL.DataAccesLayer();
+            return dal.AddUser(UserName, Password, FullName);
         }
 
-        public bool AddMessage(int MsgFrom,int MsgTo,string Sub,string Body) { return false; }
+        public Entities.User GetUserByName(string UserName)
+        {
+            dal = new DAL.DataAccesLayer();
+            return dal.GetUserByName(UserName);
+        }
+
+        public bool Authorize(string UserName,string Password)
+        {
+            dal = new DAL.DataAccesLayer();
+            return dal.Authorize(UserName,Password);
+        }
+
+        public bool AddMessage(int MsgFrom, int MsgTo, string Sub, string Body) { return false; }
+
+        public Entities.User GetUser(int Id)
+        {
+            dal = new DAL.DataAccesLayer();
+            return dal.GetUser(Id);
+        }
     }
 }

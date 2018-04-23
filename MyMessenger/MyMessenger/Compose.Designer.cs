@@ -28,36 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.ToTextBox = new System.Windows.Forms.TextBox();
+            this.SubjectTextBox = new System.Windows.Forms.TextBox();
+            this.BodyRichTextBox = new System.Windows.Forms.RichTextBox();
             this.ToLabel = new System.Windows.Forms.Label();
             this.SubjectLabel = new System.Windows.Forms.Label();
             this.SendButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // ToTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(129, 73);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(446, 20);
-            this.textBox1.TabIndex = 0;
+            this.ToTextBox.Location = new System.Drawing.Point(129, 73);
+            this.ToTextBox.Name = "ToTextBox";
+            this.ToTextBox.Size = new System.Drawing.Size(446, 20);
+            this.ToTextBox.TabIndex = 0;
             // 
-            // textBox2
+            // SubjectTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(129, 109);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(446, 20);
-            this.textBox2.TabIndex = 0;
+            this.SubjectTextBox.Location = new System.Drawing.Point(129, 109);
+            this.SubjectTextBox.Name = "SubjectTextBox";
+            this.SubjectTextBox.Size = new System.Drawing.Size(446, 20);
+            this.SubjectTextBox.TabIndex = 1;
             // 
-            // richTextBox1
+            // BodyRichTextBox
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(41, 164);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(572, 166);
-            this.richTextBox1.TabIndex = 1;
-            this.richTextBox1.Text = "";
+            this.BodyRichTextBox.Location = new System.Drawing.Point(41, 164);
+            this.BodyRichTextBox.Name = "BodyRichTextBox";
+            this.BodyRichTextBox.Size = new System.Drawing.Size(572, 166);
+            this.BodyRichTextBox.TabIndex = 2;
+            this.BodyRichTextBox.Text = "";
             // 
             // ToLabel
             // 
@@ -82,9 +82,10 @@
             this.SendButton.Location = new System.Drawing.Point(204, 337);
             this.SendButton.Name = "SendButton";
             this.SendButton.Size = new System.Drawing.Size(75, 23);
-            this.SendButton.TabIndex = 3;
+            this.SendButton.TabIndex = 4;
             this.SendButton.Text = "Send";
             this.SendButton.UseVisualStyleBackColor = true;
+            this.SendButton.Click += new System.EventHandler(this.SendButton_Click);
             // 
             // CancelButton
             // 
@@ -104,11 +105,12 @@
             this.Controls.Add(this.SendButton);
             this.Controls.Add(this.SubjectLabel);
             this.Controls.Add(this.ToLabel);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.BodyRichTextBox);
+            this.Controls.Add(this.SubjectTextBox);
+            this.Controls.Add(this.ToTextBox);
             this.Name = "Compose";
             this.Text = "Compose";
+            this.Load += new System.EventHandler(this.Compose_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,9 +118,9 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.TextBox ToTextBox;
+        private System.Windows.Forms.TextBox SubjectTextBox;
+        private System.Windows.Forms.RichTextBox BodyRichTextBox;
         private System.Windows.Forms.Label ToLabel;
         private System.Windows.Forms.Label SubjectLabel;
         private System.Windows.Forms.Button SendButton;

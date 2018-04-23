@@ -12,6 +12,9 @@ namespace MyMessenger
 {
     public partial class MessageList : Form
     {
+        public BLL.bll BusinessLogic;
+        public Entities.User user;
+
         public MessageList()
         {
             InitializeComponent();
