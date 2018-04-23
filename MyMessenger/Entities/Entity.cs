@@ -18,8 +18,8 @@ namespace Entities
     public class Message
     {
         public int Id { get; set; }
-        public int From { get; set; }
-        public int To { get; set; }
+        public int MsgFrom { get; set; }
+        public int MsgTo { get; set; }
         public string Sub { get; set; }
         public string Body { get; set; }
         public DateTime Date { get; set; }

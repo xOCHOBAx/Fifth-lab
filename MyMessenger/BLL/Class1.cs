@@ -8,6 +8,20 @@ namespace BLL
 {
     public class bll
     {
-        
+        static DAL.DataAccesLayer dal = new DAL.DataAccesLayer();
+
+        public bool AddUser(string UserName, string Password, string FullName)
+        {
+            dal = new DAL.DataAccesLayer();
+            return dal.AddUser(UserName, Password, FullName);
+        }
+
+        public bool AddMessage(int MsgFrom, int MsgTo, string Sub, string Body) { return false; }
+
+        public User GetUser(int Id)
+        {
+            dal = new DAL.DataAccesLayer();
+            return dal.GetUser(Id);
+        }
     }
 }

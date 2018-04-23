@@ -28,5 +28,15 @@ namespace MyMessenger
             var dal = new DAL.DataAccesLayer();
             label1.Text = dal.AddMessage(1,2,"tema","text", DateTime.Now).ToString();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var dal = new DAL.DataAccesLayer();
+            label3.Text = dal.GetMessage(16).Body;
+            var list = new List<Entities.Message>();
+            dal = new DAL.DataAccesLayer();
+            list.Add(dal.GetMessage(16));
+            dataGridView1.DataSource = list;
+        }
     }
 }
