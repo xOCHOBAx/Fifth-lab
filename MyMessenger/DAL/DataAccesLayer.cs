@@ -14,7 +14,7 @@ namespace DAL
     {
         static string connectionString = ConfigurationManager.ConnectionStrings["Default"].ConnectionString;
         SqlConnection connection;
-        
+
         public DataAccesLayer()
         {
             connectionString = ConfigurationManager.ConnectionStrings["Default"].ConnectionString;
@@ -83,6 +83,42 @@ namespace DAL
                 a.Fill(ds);
 
                 return true;
+            }
+        }
+
+        public List<Entities.Message> GetMessagesFromById(int Id)
+        {
+            var list = new List<Entities.Message>();
+            using (connection)
+            using (var command = new SqlCommand("Get_Messages_From_By_Id", connection) { CommandType = CommandType.StoredProcedure })
+            {
+                var ds = new DataSet();
+                SqlDataAdapter a = new SqlDataAdapter(command);
+                command.Parameters.AddWithValue("@Id",Id);
+                a.Fill(ds);
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    list.Add(FormMessageFromRow(row));
+                }
+                return list;
+            }
+        }
+
+        public List<Entities.Message> GetMessagesToById(int Id)
+        {
+            var list = new List<Entities.Message>();
+            using (connection)
+            using (var command = new SqlCommand("Get_Messages_To_By_Id", connection) { CommandType = CommandType.StoredProcedure })
+            {
+                var ds = new DataSet();
+                SqlDataAdapter a = new SqlDataAdapter(command);
+                command.Parameters.AddWithValue("@Id", Id);
+                a.Fill(ds);
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    list.Add(FormMessageFromRow(row));
+                }
+                return list;
             }
         }
 
