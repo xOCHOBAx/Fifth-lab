@@ -19,7 +19,9 @@ namespace Entities
     {
         public int Id { get; set; }
         public int MsgFrom { get; set; }
+        public string MsgFromName { get; set; }
         public int MsgTo { get; set; }
+        public string MsgToName { get; set; }
         public string Sub { get; set; }
         public string Body { get; set; }
         public DateTime Date { get; set; }

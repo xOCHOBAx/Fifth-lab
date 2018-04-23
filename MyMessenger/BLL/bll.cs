@@ -22,6 +22,18 @@ namespace BLL
             return dal.GetUserByName(UserName);
         }
 
+        public List<Entities.Message> GetMessagesFromById(int Id)
+        {
+            dal = new DAL.DataAccesLayer();
+            return dal.GetMessagesFromById(Id);
+        }
+
+        public List<Entities.Message> GetMessagesToById(int Id)
+        {
+            dal = new DAL.DataAccesLayer();
+            return dal.GetMessagesToById(Id);
+        }
+
         public bool Authorize(string UserName,string Password)
         {
             dal = new DAL.DataAccesLayer();

@@ -54,5 +54,14 @@ namespace MyMessenger
         {
             user = login.user;
         }
+
+        private void LogOut_Click(object sender, EventArgs e)
+        {
+            user = null;
+            login = new Login();
+            login.MdiParent = this;
+            login.BusinessLogic = BusinessLogic;
+            login.Show();
+        }
     }
 }
