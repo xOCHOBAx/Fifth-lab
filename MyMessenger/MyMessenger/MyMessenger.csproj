@@ -63,6 +63,11 @@
     <Compile Include="MessageList.Designer.cs">
       <DependentUpon>MessageList.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyMessengerDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyMessengerDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Login.resx">
@@ -83,6 +88,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="MyMessengerDBDataSet.xsc">
+      <DependentUpon>MyMessengerDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MyMessengerDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MyMessengerDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MyMessengerDBDataSet.xss">
+      <DependentUpon>MyMessengerDBDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

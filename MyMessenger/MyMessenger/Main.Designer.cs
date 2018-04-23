@@ -31,9 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.Compose = new System.Windows.Forms.ToolStripButton();
-            this.CheckMessage = new System.Windows.Forms.ToolStripButton();
-            this.CloseMessageBox = new System.Windows.Forms.ToolStripButton();
             this.LogOut = new System.Windows.Forms.ToolStripButton();
+            this.CloseMessageBox = new System.Windows.Forms.ToolStripButton();
+            this.CheckMessage = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,14 +60,15 @@
             this.Compose.Text = "Compose";
             this.Compose.Click += new System.EventHandler(this.Compose_Click);
             // 
-            // CheckMessage
+            // LogOut
             // 
-            this.CheckMessage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.CheckMessage.Image = ((System.Drawing.Image)(resources.GetObject("CheckMessage.Image")));
-            this.CheckMessage.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.CheckMessage.Name = "CheckMessage";
-            this.CheckMessage.Size = new System.Drawing.Size(23, 22);
-            this.CheckMessage.Text = "Check Messages";
+            this.LogOut.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.LogOut.Image = ((System.Drawing.Image)(resources.GetObject("LogOut.Image")));
+            this.LogOut.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.LogOut.Name = "LogOut";
+            this.LogOut.Size = new System.Drawing.Size(23, 22);
+            this.LogOut.Text = "Log Out";
+            this.LogOut.Click += new System.EventHandler(this.LogOut_Click);
             // 
             // CloseMessageBox
             // 
@@ -78,14 +79,15 @@
             this.CloseMessageBox.Size = new System.Drawing.Size(23, 22);
             this.CloseMessageBox.Text = "Close Message Box";
             // 
-            // LogOut
+            // CheckMessage
             // 
-            this.LogOut.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.LogOut.Image = ((System.Drawing.Image)(resources.GetObject("LogOut.Image")));
-            this.LogOut.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.LogOut.Name = "LogOut";
-            this.LogOut.Size = new System.Drawing.Size(23, 22);
-            this.LogOut.Text = "Log Out";
+            this.CheckMessage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.CheckMessage.Image = ((System.Drawing.Image)(resources.GetObject("CheckMessage.Image")));
+            this.CheckMessage.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.CheckMessage.Name = "CheckMessage";
+            this.CheckMessage.Size = new System.Drawing.Size(23, 22);
+            this.CheckMessage.Text = "Check Messages";
+            this.CheckMessage.Click += new System.EventHandler(this.CheckMessage_Click);
             // 
             // Main
             // 

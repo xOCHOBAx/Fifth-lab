@@ -30,5 +30,16 @@ namespace MyMessenger
             login.MdiParent = this;
             login.Show();
         }
+
+        private void LogOut_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CheckMessage_Click(object sender, EventArgs e)
+        {
+            MessageList messageList = new MessageList();
+            messageList.Show();
+        }
     }
 }

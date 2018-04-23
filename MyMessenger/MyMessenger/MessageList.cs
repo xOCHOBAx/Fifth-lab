@@ -24,7 +24,15 @@ namespace MyMessenger
 
         private void MessageList_Load(object sender, EventArgs e)
         {
+            DAL.DataAccesLayer dal = new DAL.DataAccesLayer();
+            List<Entities.Message> messages = new List<Entities.Message>();
+            messages = dal.GetMessagesFromById(1);
+            dataGridView1.DataSource = messages;
+        }
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        { 
+            
         }
     }
 }
