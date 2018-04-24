@@ -32,6 +32,7 @@ namespace MyMessenger
             dataGridView1.Columns["MsgTo"].Visible = false;
             dataGridView1.Columns["MsgFrom"].Visible = false;
             dataGridView1.Columns["MsgToName"].Visible = false;
+            richTextBox1.ReadOnly = true;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -42,7 +43,6 @@ namespace MyMessenger
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             richTextBox1.Text = dataGridView1.CurrentRow.Cells["Body"].Value.ToString();
-            //richTextBox1.Text = dataGridView1.CurrentRow.Cells["Body"].Value.ToString();
         }
 
         private void InboxRadioButton_CheckedChanged(object sender, EventArgs e)

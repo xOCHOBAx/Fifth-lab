@@ -10,7 +10,7 @@ using System.Configuration;
 
 namespace DAL
 {
-    public class DataAccesLayer
+    public class DataAccesLayer : IDataAccesLayer
     {
         static string connectionString = ConfigurationManager.ConnectionStrings["Default"].ConnectionString;
         SqlConnection connection;
@@ -103,7 +103,7 @@ namespace DAL
             };
         }
 
-        public bool AddMessage(int MsgFrom, int MsgTo, string Sub, string Body, DateTime Date)
+        public bool AddMessage(int MsgFrom, int MsgTo, string Sub, string Body)
         {
             DataSet ds = new DataSet();
             using (connection)
@@ -115,8 +115,9 @@ namespace DAL
                 command.Parameters.Add(new SqlParameter("@MsgTo", MsgTo));
                 command.Parameters.Add(new SqlParameter("@Sub", Sub));
                 command.Parameters.Add(new SqlParameter("@Body", Body));
-                command.Parameters.Add(new SqlParameter("@Date", Date));
-                a.Fill(ds);
+                command.Parameters.Add(new SqlParameter("@Date", DateTime.Now));
+
+                command.ExecuteNonQuery();
 
                 return true;
             }

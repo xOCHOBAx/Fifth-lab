@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccesLayer.cs" />
+    <Compile Include="IDataAccesLayer.cs" />
     <Compile Include="MyMessengerDBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

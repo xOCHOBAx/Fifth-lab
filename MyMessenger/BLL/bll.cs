@@ -8,7 +8,7 @@ namespace BLL
 {
     public class bll
     {
-        static DAL.DataAccesLayer dal = new DAL.DataAccesLayer();
+        static DAL.IDataAccesLayer dal;
 
         public bool AddUser(string UserName, string Password, string FullName)
         {
@@ -34,13 +34,17 @@ namespace BLL
             return dal.GetMessagesToById(Id);
         }
 
-        public bool Authorize(string UserName,string Password)
+        public bool Authorize(string UserName, string Password)
         {
             dal = new DAL.DataAccesLayer();
-            return dal.Authorize(UserName,Password);
+            return dal.Authorize(UserName, Password);
         }
 
-        public bool AddMessage(int MsgFrom, int MsgTo, string Sub, string Body) { return false; }
+        public bool AddMessage(int MsgFrom, int MsgTo, string Sub, string Body)
+        {
+            dal = new DAL.DataAccesLayer();
+            return dal.AddMessage(MsgFrom,MsgTo,Sub,Body);
+        }
 
         public Entities.User GetUser(int Id)
         {

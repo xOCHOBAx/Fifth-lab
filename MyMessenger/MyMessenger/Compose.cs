@@ -27,10 +27,13 @@ namespace MyMessenger
 
         private void SendButton_Click(object sender, EventArgs e)
         {
-            if (BusinessLogic.AddMessage(user.Id, Convert.ToInt32(ToTextBox.Text), SubjectTextBox.Text, BodyRichTextBox.Text)){
-                this.Dispose();
-            }
-            
+            Entities.User To = BusinessLogic.GetUserByName(ToTextBox.Text);
+            if (To != null)
+                if (BusinessLogic.AddMessage(user.Id, To.Id, SubjectTextBox.Text, BodyRichTextBox.Text))
+                {
+                    this.Dispose();
+                }
+
 
         }
     }
