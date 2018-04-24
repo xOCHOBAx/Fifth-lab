@@ -14,6 +14,7 @@ namespace MyMessenger
     {
         public Entities.User user;
         public BLL.bll BusinessLogic;
+        public Main parent;
 
         public Compose()
         {
@@ -22,7 +23,7 @@ namespace MyMessenger
 
         private void Compose_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void SendButton_Click(object sender, EventArgs e)
@@ -31,10 +32,27 @@ namespace MyMessenger
             if (To != null)
                 if (BusinessLogic.AddMessage(user.Id, To.Id, SubjectTextBox.Text, BodyRichTextBox.Text))
                 {
+                    parent.CloseMessageBox_Click(sender, e);
                     this.Dispose();
                 }
+                else MessageBox.Show("s");
+        }
 
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            parent.AwaitingState();
+            Dispose();
+        }
 
+        private void Compose_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            parent.AwaitingState();
+            Dispose();
+        }
+
+        private void Compose_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            parent.AwaitingState();
         }
     }
 }

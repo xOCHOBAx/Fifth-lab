@@ -95,11 +95,14 @@
             this.CancelButton.TabIndex = 3;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // Compose
             // 
+            this.AcceptButton = this.SendButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.CancelButton;
             this.ClientSize = new System.Drawing.Size(675, 385);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.SendButton);
@@ -109,7 +112,11 @@
             this.Controls.Add(this.SubjectTextBox);
             this.Controls.Add(this.ToTextBox);
             this.Name = "Compose";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Compose";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Compose_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Compose_FormClosed);
             this.Load += new System.EventHandler(this.Compose_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

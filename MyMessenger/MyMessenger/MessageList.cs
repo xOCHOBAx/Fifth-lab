@@ -14,6 +14,7 @@ namespace MyMessenger
     {
         public BLL.bll BusinessLogic;
         public Entities.User user;
+        public Main parent;
 
         public MessageList()
         {
@@ -32,7 +33,7 @@ namespace MyMessenger
             dataGridView1.Columns["MsgTo"].Visible = false;
             dataGridView1.Columns["MsgFrom"].Visible = false;
             dataGridView1.Columns["MsgToName"].Visible = false;
-            richTextBox1.ReadOnly = true;
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -59,6 +60,11 @@ namespace MyMessenger
             dataGridView1.Columns["MsgToName"].Visible = true;
             dataGridView1.Columns["MsgFromName"].Visible = false;
 
+        }
+
+        private void MessageList_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            parent.CloseMessageBox_Click(sender,e);
         }
     }
 }

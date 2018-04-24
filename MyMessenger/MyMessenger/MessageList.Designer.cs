@@ -50,6 +50,7 @@
             // 
             this.richTextBox1.Location = new System.Drawing.Point(38, 215);
             this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(696, 133);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
@@ -91,6 +92,8 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "MessageList";
             this.Text = "MessageList";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MessageList_FormClosed);
             this.Load += new System.EventHandler(this.MessageList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

@@ -14,6 +14,7 @@ namespace MyMessenger
     {
         public Entities.User user;
         public BLL.bll BusinessLogic;
+        public Main parent;
 
         public Login()
         {
@@ -22,7 +23,7 @@ namespace MyMessenger
 
         private void Login_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
@@ -30,6 +31,8 @@ namespace MyMessenger
             if(BusinessLogic.Authorize(LoginTextBox.Text,PasswordTextBox.Text))
             {
                 user = BusinessLogic.GetUserByName(LoginTextBox.Text);
+                parent.user = user;
+                parent.ShowMessageList();
                 this.Dispose();
             }
         }

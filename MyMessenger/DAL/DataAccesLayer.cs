@@ -46,7 +46,8 @@ namespace DAL
                 SqlDataAdapter a = new SqlDataAdapter(command);
                 DataSet ds = new DataSet();
                 a.Fill(ds);
-                return ds.Tables.Count == 1;
+
+                return ds.Tables[0].Rows.Count==1;
             }
         }
 
