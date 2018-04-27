@@ -35,6 +35,7 @@ namespace MyMessenger
                 parent.ShowMessageList();
                 this.Dispose();
             }
+            MessageBox.Show("Неверный логин и/или пароль");
         }
     }
 }

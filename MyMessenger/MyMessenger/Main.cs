@@ -105,6 +105,7 @@ namespace MyMessenger
 
         private void Main_MdiChildActivate(object sender, EventArgs e)
         {
+
         }
 
         private void LogOut_Click(object sender, EventArgs e)

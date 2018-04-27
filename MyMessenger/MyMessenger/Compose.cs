@@ -35,7 +35,7 @@ namespace MyMessenger
                     parent.CloseMessageBox_Click(sender, e);
                     this.Dispose();
                 }
-                else MessageBox.Show("s");
+                else MessageBox.Show("Сообщение или тема содержат запрещенные слова");
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
